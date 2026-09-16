@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>노원구 병원동행 서비스 - 안심 병원 동행</title>
+    <title>시니어건강 365 - 병원동행 & 일상건강 케어</title>
     <style>
-        /* 기본 리셋 및 폰트 설정 */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
-
         body {
-            background-color: #f4f7f6;
+            background-color: #f4f7f5;
             color: #333333;
             line-height: 1.6;
-            padding-bottom: 90px; /* 하단 고정 버튼 영역 확보 */
+            padding-bottom: 95px;
         }
-
-        /* 컨테이너 */
         .container {
             max-width: 600px;
             margin: 0 auto;
@@ -28,46 +24,40 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             min-height: 100vh;
         }
-
-        /* 메인 상단 헤더/히어로 섹션 */
+        /* 메인 히어로 섹션 */
         .hero {
-            background: linear-gradient(135deg, #1b5e20, #388e3c);
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
             color: #ffffff;
-            padding: 40px 20px 30px;
+            padding: 40px 20px 35px;
             text-align: center;
         }
-
         .hero .badge {
             display: inline-block;
             background-color: #e8f5e9;
             color: #1b5e20;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
             padding: 6px 14px;
             border-radius: 20px;
             margin-bottom: 15px;
         }
-
         .hero h1 {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 23px;
+            font-weight: 800;
             line-height: 1.4;
             margin-bottom: 12px;
             word-break: keep-all;
         }
-
         .hero p {
             font-size: 15px;
-            opacity: 0.9;
+            opacity: 0.95;
             word-break: keep-all;
         }
-
-        /* 공통 섹션 스타일 */
+        /* 공통 섹션 */
         .section {
             padding: 30px 20px;
-            border-bottom: 8px solid #f4f7f6;
+            border-bottom: 8px solid #f4f7f5;
         }
-
         .section-title {
             font-size: 19px;
             font-weight: 700;
@@ -76,7 +66,6 @@
             position: relative;
             padding-left: 12px;
         }
-
         .section-title::before {
             content: '';
             position: absolute;
@@ -84,139 +73,166 @@
             top: 4px;
             bottom: 4px;
             width: 4px;
-            background-color: #388e3c;
+            background-color: #2e7d32;
             border-radius: 2px;
         }
-
-        /* 서비스 특장점 카드 */
-        .feature-grid {
-            display: block;
+        /* 자격증 이미지 슬라이드/카드 영역 */
+        .cert-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-
-        .feature-item {
+        .cert-card {
+            border: 1px dashed #2e7d32;
             background-color: #f8fbf9;
-            border: 1px solid #e0ebd8;
-            border-radius: 10px;
-            padding: 16px;
-            margin-bottom: 12px;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
         }
-
-        .feature-item h3 {
-            font-size: 16px;
-            color: #2e7d32;
-            margin-bottom: 6px;
+        .cert-card img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid #e0ebd8;
+            background-color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .cert-title {
+            font-weight: bold;
+            font-size: 15px;
+            color: #1b5e20;
+        }
+        /* 프로그램 서비스 카드 */
+        .program-card {
+            background-color: #ffffff;
+            border: 1px solid #e0ebd8;
+            border-left: 5px solid #2e7d32;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .program-card h3 {
+            font-size: 17px;
+            color: #1b5e20;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
         }
-
-        .feature-item h3::before {
-            content: '✔';
+        .program-card h3 span {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 10px;
             margin-right: 8px;
-            font-size: 14px;
-            color: #388e3c;
         }
-
-        .feature-item p {
+        .program-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 8px;
+        }
+        .program-card li {
             font-size: 14px;
             color: #555555;
-            padding-left: 22px;
+            margin-bottom: 5px;
+            padding-left: 18px;
+            position: relative;
         }
-
-        /* 매니저 소개 카카오톡 스타일/포인트 */
+        .program-card li::before {
+            content: '•';
+            position: absolute;
+            left: 5px;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        /* 프로필 카드 */
         .profile-card {
-            background: #ffffff;
-            border: 2px solid #e0f2f1;
+            background: linear-gradient(to bottom, #ffffff, #f1f8e9);
+            border: 1px solid #c8e6c9;
             border-radius: 12px;
             padding: 20px;
             text-align: center;
         }
-
-        .profile-title {
-            font-size: 17px;
-            font-weight: bold;
-            color: #004d40;
+        .profile-badge {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: #ffffff;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 12px;
             margin-bottom: 10px;
         }
-
         .profile-desc {
             font-size: 14px;
-            color: #444444;
+            color: #333333;
             line-height: 1.7;
             word-break: keep-all;
         }
-
-        .hospital-list {
+        /* 태그 스타일 */
+        .tag-list {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 10px;
         }
-
-        .hospital-tag {
+        .tag-item {
             background-color: #e8f5e9;
-            color: #2e7d32;
+            color: #1b5e20;
             font-size: 13px;
             font-weight: 600;
             padding: 6px 12px;
             border-radius: 15px;
         }
-
         /* 요금 안내 테이블 */
         .price-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
-
         .price-table th, .price-table td {
             padding: 12px 10px;
             font-size: 14px;
             text-align: left;
             border-bottom: 1px solid #eeeeee;
         }
-
         .price-table th {
             background-color: #f1f8e9;
             color: #333333;
-            width: 40%;
+            width: 45%;
             font-weight: 600;
         }
-
         .price-table td {
             color: #1b5e20;
             font-weight: bold;
         }
-
-        /* 자주 묻는 질문(FAQ) */
+        /* FAQ */
         .faq-item {
             margin-bottom: 15px;
         }
-
         .faq-q {
             font-weight: bold;
             font-size: 15px;
             color: #1b5e20;
             margin-bottom: 4px;
         }
-
         .faq-a {
             font-size: 14px;
             color: #666666;
-            padding-left: 18px;
+            padding-left: 15px;
             word-break: keep-all;
         }
-
-        /* 푸터 정보 */
+        /* 푸터 */
         .footer {
-            padding: 20px;
-            background-color: #f9f9f9;
+            padding: 25px 20px;
+            background-color: #2e3d30;
+            color: #dddddd;
             font-size: 12px;
-            color: #888888;
             text-align: center;
-            line-height: 1.6;
+            line-height: 1.7;
         }
-
-        /* 하단 고정 전화 상담하기 큰 버튼 */
+        /* 하단 고정 전화 버튼 */
         .fixed-btn-container {
             position: fixed;
             bottom: 0;
@@ -227,33 +243,25 @@
             box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
             z-index: 1000;
         }
-
         .fixed-btn-wrapper {
             max-width: 560px;
             margin: 0 auto;
         }
-
         .call-btn {
             display: block;
             width: 100%;
-            background-color: #2e7d32;
+            background-color: #1b5e20;
             color: #ffffff;
             text-decoration: none;
             text-align: center;
             font-size: 18px;
             font-weight: bold;
-            padding: 16px 0;
+            padding: 15px 0;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
-            transition: background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(27, 94, 32, 0.3);
         }
-
-        .call-btn:active {
-            background-color: #1b5e20;
-        }
-
         .call-btn span {
-            font-size: 13px;
+            font-size: 12px;
             display: block;
             font-weight: normal;
             opacity: 0.9;
@@ -262,66 +270,92 @@
     </style>
 </head>
 <body>
-
     <div class="container">
-        <!-- 상단 헤더 -->
+        <!-- 메인 헤더 -->
         <header class="hero">
-            <span class="badge">서울 노원구 전문</span>
-            <h1>어르신·환자분의 병원길,<br>자식 같은 마음으로 동행합니다</h1>
-            <p>전문 병원동행매니저가 출발부터 귀가까지 안심 케어해 드립니다.</p>
+            <span class="badge">노원구 도봉구 전문 통합 케어</span>
+            <h1>시니어건강 365<br>병원동행 & 일상건강 케어</h1>
+            <p>병원 동행부터 365일 맞춤형 건강 지도까지,<br>검증된 전문 매니저가 함께합니다.</p>
         </header>
-
-        <!-- 서비스 안내 -->
+        <!-- 프로필 & 전문 자격증 -->
         <section class="section">
-            <h2 class="section-title">주요 동행 서비스</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h3>병원 이동 및 수속 지원</h3>
-                    <p>자택 방문 출발부터 병원 도착, 접수 및 수속 절차를 꼼꼼하게 도와드립니다.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>진료실 동행 및 메모</h3>
-                    <p>의사선생님 진료 시 함께 들어가 주의사항 및 전달사항을 정확히 기록합니다.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>수납, 약 수령 및 귀가 케어</h3>
-                    <p>진료비 수납, 약국 방문 처방전 수령 후 안전하게 자택까지 모셔다 드립니다.</p>
-                </div>
-                <div class="feature-item">
-                    <h3>보호자 안심 보고</h3>
-                    <p>진료 내용과 전달사항을 타지에 계신 보호자분께 문자로 자세히 안내합니다.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 매니저 소개 및 주요 병원 -->
-        <section class="section">
-            <h2 class="section-title">믿을 수 있는 매니저</h2>
+            <h2 class="section-title">검증된 전문가 프로필</h2>
             <div class="profile-card">
-                <div class="profile-title">정식 자격증 보유 전문 매니저</div>
+                <span class="profile-badge"> 관련분야 자격증 보유 매니저</span>
                 <p class="profile-desc">
-                    병원동행매니저 자격증을 보유하고 있으며, 노원구 지리에 밝은 지역 매니저입니다.<br>
-                    내 부모님을 모시는 마음으로 안전하고 친절하게 동행하겠습니다.
+                    <strong>병원동행매니저 1급</strong>과 <strong>실버건강지도사 1급</strong>을 모두 보유한 노원구 도봉구 전문 케어 매니저입니다.<br><br>
+                    단순 이동 도움을 넘어 어르신의 신체·정서적 건강을 올바르게 이해하고 내 부모님처럼 정성껏 모십니다.
                 </p>
             </div>
-
-            <h3 style="font-size: 15px; margin-top: 20px; margin-bottom: 10px; color: #333;">📍 노원구 주요 이용 가능 병원</h3>
-            <div class="hospital-list">
-                <span class="hospital-tag">인제대학교 상계백병원</span>
-                <span class="hospital-tag">원자력병원</span>
-                <span class="hospital-tag">노원을지대학교병원</span>
-                <span class="hospital-tag">태릉성심병원</span>
-                <span class="hospital-tag">노원구 보건소 및 의원</span>
-                <span class="hospital-tag">외 지역 병원 및 의원 (요금협의)</span>
+        </section>
+        <!-- 자격증 사진 업로드 영역 -->
+        <section class="section">
+            <h2 class="section-title">자격증 및 보유 인증</h2>
+            <div class="cert-container">
+                <div class="cert-card">
+                    <img src="cert1.jpg" alt="병원동행매니저 1급 자격증" onerror="this.src='https://via.placeholder.com/500x300/e8f5e9/1b5e20?text=%EC%9E%90%EA%B2%A9%EC%A6%9D+%EC%82%AC%EC%A5%841+(cert1.jpg)'">
+                    <div class="cert-title">🎖️ 병원동행매니저 1급</div>
+                </div>
+                <div class="cert-card">
+                    <img src="cert2.jpg" alt="실버건강지도사 1급 자격증" onerror="this.src='https://via.placeholder.com/500x300/e8f5e9/1b5e20?text=%EC%9E%90%EA%B2%A9%EC%A6%9D+%EC%82%AC%EC%A5%842+(cert2.jpg)'">
+                    <div class="cert-title">🎖️ 실버건강지도사 1급</div>
+                </div>
+                <div class="cert-card">
+                    <img src="cert3.jpg" alt="AI프로젝트지도사 1급 자격증" onerror="this.src='https://via.placeholder.com/500x300/e8f5e9/1b5e20?text=%EC%9E%90%EA%B2%A9%EC%A6%9D+%EC%82%AC%EC%A5%843+(cert3.jpg)'">
+                    <div class="cert-title">🎖️ AI프로젝트지도사 1급</div>
+                </div>
             </div>
         </section>
-
-        <!-- 이용 안내 및 요금 -->
+        <!-- 시니어건강 365 핵심 프로그램 -->
         <section class="section">
-            <h2 class="section-title">이용 요금 안내</h2>
+            <h2 class="section-title">시니어건강 365 프로그램</h2>
+            
+            <div class="program-card">
+                <h3><span>01</span> 원스톱 안심 병원동행</h3>
+                <ul>
+                    <li>자택 출발부터 병원 접수, 진료, 수납, 약 수령, 귀가 안심 케어</li>
+                    <li>의사선생님 진료 시 동행 및 소통 지원 (진료 메모)</li>
+                    <li>멀리 계신 자녀/보호자분께 상세 진료 보고 문자 발송</li>
+                </ul>
+            </div>
+            <div class="program-card">
+                <h3><span>02</span> 일상 건강 지도 & 케어</h3>
+                <ul>
+                    <li>실버건강지도사의 맞춤형 맨손 체조 및 관절 건강 운동 케어</li>
+                    <li>올바른 약 복용 지도 및 일상 생활 습관 관리</li>
+                    <li>말벗 케어 및 정서적 안정을 위한 1:1 맞춤 상담</li>
+                </ul>
+            </div>
+            <div class="program-card">
+                <h3><span>03</span> 노원구 도봉구 지역 특화 케어</h3>
+                <ul>
+                    <li>노원구 도봉구 주요 종합병원 및 지역 의원 지리 완벽숙지</li>
+                    <li>안전한 보행 보조 및 맞춤 동선 설계</li>
+                </ul>
+            </div>
+        </section>
+        <!-- 이용 가능 주요 병원 -->
+        <section class="section">
+            <h2 class="section-title">노원구 도봉구 주요 이용 병원</h2>
+            <div class="tag-list">
+                <span class="tag-item">상계백병원</span>
+                <span class="tag-item">원자력병원</span>
+                <span class="tag-item">노원을지대병원</span>
+                <span class="tag-item">태릉성심병원</span>
+                <span class="tag-item">한일병원</span>
+                <span class="tag-item">에이치큐브병원</span>
+                <span class="tag-item">서울노보스병원</span>
+                <span class="tag-item">자향한방병원</span>
+       <span class="tag-item">노원구 도봉구 보건소 및 의원</span>
+       <span class="tag-item">타 지역 병원 협의 후 진행가능 </span>
+            </div>
+        </section>
+        <!-- 서비스 요금 안내 -->
+        <section class="section">
+            <h2 class="section-title">서비스 이용 요금</h2>
             <table class="price-table">
                 <tr>
-                    <th>기본 1시간</th>
+                    <th>병원동행 기본 (1시간)</th>
                     <td>20,000원</td>
                 </tr>
                 <tr>
@@ -329,45 +363,44 @@
                     <td>10,000원</td>
                 </tr>
                 <tr>
+                    <th>일상건강 지도 (1회/60분)</th>
+                    <td>문의 상담</td>
+                </tr>
+                <tr>
                     <th>이용 가능 시간</th>
-                    <td>평일/주말 08:00 ~ 18:00 (사전예약제)</td>
+                    <td>08:00 ~ 18:00 (사전예약제)</td>
                 </tr>
             </table>
-            <p style="font-size: 12px; color: #888; margin-top: 10px;">* 대중교통비 및 택시비 등 교통비는 실비 청구됩니다.</p>
+            <p style="font-size: 12px; color: #888; margin-top: 10px;">* 대중교통 및 택시 이용, 당사 차량 이용시 교통비 및 주차비 등은 실비 청구됩니다.</p>
         </section>
-
         <!-- 자주 묻는 질문 -->
         <section class="section">
-            <h2 class="section-title">자주 묻는 질문</h2>
+            <h2 class="section-title">자주 묻는 질문 (FAQ)</h2>
             <div class="faq-item">
-                <div class="faq-q">Q. 당일 예약도 가능한가요?</div>
-                <div class="faq-a">원활한 서비스 제공을 위해 최소 1~2일 전 예약을 권장해 드립니다.</div>
+                <div class="faq-q">Q. 실버건강지도는 어떤 서비스인가요?</div>
+                <div class="faq-a">병원 동행 외에도 어르신의 건강 유지를 위한 맞춤형 운동 가이드, 정서 케어, 건강 습관 관리를 함께 진행해 드리는 프로그램입니다.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-q">Q. 보호자가 함께 동행하지 않아도 되나요?</div>
-                <div class="faq-a">네, 보호자분이 바쁘시더라도 매니저가 전 과정을 책임지고 함께하며 진행 상황을 문자로 알려드립니다.</div>
+                <div class="faq-q">Q. 자녀가 함께 가지 못해도 안심할 수 있나요?</div>
+                <div class="faq-a">네, 매니저가 이동부터 진료 및 약 수령까지 전 과정을 책임지고 함께하며, 결과 내용을 보호자분께 문자로 상세히 공유해 드립니다.</div>
             </div>
         </section>
-
         <!-- 푸터 -->
         <footer class="footer">
-            <p><strong>노원 안심 병원동행 서비스</strong></p>
-            <p>지역: 서울특별시, 노원구 전지역</p>
-            <p>상담 및 예약: 전화 문의 환영 / 직통 tel: 010-2571-5482(어서빨리) </p>
-            <p style="margin-top: 10px;">© 2026 노원 병원동행매니저. All rights reserved.</p>
+            <p><strong>시니어건강 365 (노원 도봉 안심 케어)</strong></p>
+            <p>지역: 서울특별시 노원구 도봉구 전지역</p>
+            <p>자격: 병원동행매니저 1급 / 실버건강지도사 1급 보유</p>
         </footer>
     </div>
-
-    <!-- 하단 고정 전화 상담하기 큰 버튼 -->
+    <!-- 하단 고정 전화 버튼 -->
     <div class="fixed-btn-container">
         <div class="fixed-btn-wrapper">
-            <!-- href="tel:010-2571-5482" 부분에 실제 전화번호를 입력하시면 됩니다 -->
-            <a href="tel:010-2571-5482" class="call-btn">
-                <span>클릭하시면 바로 연결됩니다</span>
-                📞 전화 상담하기 (예약/문의)
+            <!-- 아래 href="tel:010-2571-5482" 의 번호를 실제 연락처로 바꾸세요 -->
+            <a href="tel:010-2571-5482(어서빨리)" class="call-btn">
+                <span>클릭하시면 상담 전화로 바로 연결됩니다</span>
+                📞 전화 상담 및 예약하기
             </a>
         </div>
     </div>
-
 </body>
 </html>
